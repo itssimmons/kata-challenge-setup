@@ -1,0 +1,4 @@
+cc_binary(
+    name = "kata-challenge",
+    srcs = ["main.cc"],
+)

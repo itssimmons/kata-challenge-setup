@@ -1,0 +1,32 @@
+# Bazel-specific ignores
+*.bazel.lock
+
+/bazel-*
+/bazel-bin
+/bazel-out
+/bazel-testlogs
+/bazel-workspace
+
+# IDE and editor files
+.idea/
+*.swp
+*~
+
+# Build outputs
+*.o
+*.a
+*.so
+
+# C++ specific
+*.exe
+*.dll
+*.lib
+*.obj
+*.pdb
+*.ilk
+*.exp
+*.idb
+*.manifest
+*.res
+*.app
+*.dylib
