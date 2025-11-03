@@ -1,0 +1,15 @@
+{
+	"compilerOptions": {
+		"target": "esnext",
+		"module": "node16",
+		"moduleResolution": "node16",
+		"outDir": "dist",
+		"rootDir": ".",
+		"strict": true,
+		"sourceMap": true,
+		"esModuleInterop": true,
+		"skipLibCheck": true,
+		"forceConsistentCasingInFileNames": true
+	},
+	"exclude": ["node_modules", "dist", "tests"]
+}
