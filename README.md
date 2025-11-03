@@ -1,43 +1,33 @@
-# C++ Kata Challenge Setup
-This is the alpha version of my setup to develop, test, and run katas in a few steps, using Bazel as a build system
+# Kata Challenge Setup
+This is the alpha version of my own setup to develop, and test katas locally.
+
+## 🤔 How it works?
+I've couple experience in various languages but, I'm focusing most of the time in C++, TypeScript and Shell Scripting, so
+for the beginning of this repository, you will see only 4 branches:
+
+```
+main → Project docs & README (nothing to run here)
+cpp  → C++ katas  
+       • Build: **Bazel**
+       • Test: **GoogleTest**
+ts   → TypeScript katas  
+       • Run: **Node + tsx**
+       • Test: **Mocha + Chai**
+sh   → Shell scripts  
+       • Run: **Built-in Linux bash**
+       • Test: **shunit2**
+```
 
 ## 🚀 How to run it?
 
-Simple and easy... check... <br/>
-
-> I suppose you have already installed Bazel 🤔. If not, pls check the official docs: [https://bazel.build/install](https://bazel.build/install)
-
-I'm gonna give you the *3 simple steps*:
-
-1. Code your kata in the main.cc file
-```cpp
-#inlcude <iostream>
-
-auto main(int argc, char const *argv[]) -> int
-{
-  std::cout << "My Awesome Solution\n";
-  return 0;
-}
 ```
-
-2. Build
-```sh
-bazel build //:kata-challenge
-```
-
-3. Run
-```sh
-bazel run //:kata-challenge
-```
-
-You can even do both, with one single shell line
-```sh
-bazel build //:kata-challenge ; bazel run //:kata-challenge
+BRANCH_SETUP=cpp
+#            ^ change this for the setup that you want to clone
+git clone https://github.com/itssimmons/kata-challenge-setup -b $BRANCH_SETUP
+# and follow the steps on your desired setup
 ```
 
 ## 👥 Collaborations
 Any kind of collaboration is very welcome! <br/>
 
 <sub>Happy Coding!</sub>
-
-
