@@ -20,7 +20,7 @@ sh   → Shell scripts
 
 ## 🚀 How to run it?
 
-```
+```sh
 BRANCH_SETUP=cpp
 #            ^ change this for the setup that you want to clone
 git clone https://github.com/itssimmons/kata-challenge-setup -b $BRANCH_SETUP
