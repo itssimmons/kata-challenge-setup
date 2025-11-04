@@ -1,8 +1,0 @@
-{
-	"compilerOptions": {
-		"types": ["node", "chai", "mocha"],
-		"outDir": "dist/tests"
-	},
-	"include": ["**/*.ts", "**/*.test.ts"],
-	"exclude": []
-}

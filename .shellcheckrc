@@ -1,0 +1,29 @@
+# .shellcheckrc
+# Disable warnings that are *intentional* in a mixed sh/bash project
+
+# SC2034: variable appears unused (common in sourced libs)
+disable=SC2034
+
+# SC2155: Declare and assign separately (we allow `local x=$(cmd)`)
+disable=SC2155
+
+# SC1090: Can't follow non-constant source (dynamic sourcing)
+disable=SC1090
+
+# SC1091: Not following sourced file (external files)
+disable=SC1091
+
+# SC2164: Use ||, &&, or exit traps instead of ignoring cd failures
+# (we use `set -e` + `|| exit 1` in CI)
+disable=SC2164
+
+# Enable POSIX compliance checks for .sh files
+# ShellCheck auto-detects shebang, but we help it:
+# - For files with `#!/bin/sh` → treat as POSIX
+# - For `#!/usr/bin/env bash` → allow Bashisms
+
+# Optional: Add a header comment to force dialect
+# In your .sh files:
+# # shellcheck shell=sh
+# In .bash files:
+# # shellcheck shell=bash

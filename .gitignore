@@ -1,1 +1,8 @@
-node_modules/
+share/
+libexec/
+lib/bats-core/
+
+bin/*
+!bin/.gitkeep
+
+shellcheck-*
