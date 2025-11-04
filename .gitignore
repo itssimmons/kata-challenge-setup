@@ -1,1 +1,8 @@
 node_modules/
+vendor/
+
+lib
+libexec
+bin
+share
+shellcheck-*
