@@ -1,0 +1,24 @@
+# .editorconfig
+# https://editorconfig.org
+
+root = true
+
+[*]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+[kata]
+indent_size = 4
+max_line_length = 100
+indent_style = space
+
+[*.{sh,bash}]
+indent_size = 4
+max_line_length = 100
+indent_style = space
+
+[Makefile]
+indent_size = 4
+indent_style = tab
