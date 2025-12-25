@@ -4,18 +4,18 @@ import (
 	"testing"
 )
 
-func Test20(t *testing.T) {
-	expected := "XX"
-	input := Solution(20)
+func Test29(t *testing.T) {
+	expected := 29
+	input := Decode("XXIX")
 	if input != expected {
-		t.Errorf("Expected %s but got %s", expected, input)
+		t.Errorf("Expected %d but got %d", expected, input)
 	}
 }
 
 func Test1990(t *testing.T) {
-	expected := "MCMXC"
-	input := Solution(1990)
+	expected := 1990
+	input := Decode("MCMXC")
 	if input != expected {
-		t.Errorf("Expected %s but got %s", expected, input)
+		t.Errorf("Expected %d but got %d", expected, input)
 	}
 }
