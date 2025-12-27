@@ -1,4 +1,22 @@
 cc_binary(
     name = "kata-challenge",
-    srcs = ["main.cc"],
+    srcs = ["kata.cc"],
+)
+
+cc_library(
+	name = "kata-lib",
+	srcs = ["kata.cc"],
+	hdrs = ["kata.hpp"],
+	visibility = ["//visibility:public"],
+)
+
+cc_test(
+    name = "kata-test",
+    size = "small",
+    srcs = ["kata_test.cc"],
+    deps = [
+        "@googletest//:gtest",
+        "@googletest//:gtest_main",
+        ":kata-lib",
+    ],
 )
