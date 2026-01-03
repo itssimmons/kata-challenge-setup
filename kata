@@ -1,18 +1,31 @@
+# return a string (see: RUN SAMPLE TESTS)
 #!/bin/bash
-evaporator () {
-    local content=$1
-    local rate=$2
-    local threshold=$3
+sqInRect() {
+    local long=$1
+    local wide=$2
+    local units=0
+    local sizes=()
 
-    # Use logarithmic formula instead of iteration
-    # remaining = 100 * (1 - rate/100)^day
-    # threshold = 100 * (1 - rate/100)^day
-    # log(threshold/100) = day * log(1 - rate/100)
-    # day = log(threshold/100) / log(1 - rate/100)
+    if [ $long -eq $wide ]; then
+        echo "nil"
+        return
+    fi
 
-    local day=$(echo "l($threshold/100) / l(1 - $rate/100)" | bc -l)
-    day=$(echo "scale=0; ($day + 0.999999999)/1" | bc)
+    while [ $wide -ne 0 ]; do
+        units=$(( long / wide ))
+        long=$(( long % wide ))
 
-    echo $day
+        for (( i=0; i<units; i++ )); do
+            sizes+=($wide)
+        done
+
+        local aux=$long
+        long=$wide
+        wide=$aux
+        unset aux
+    done
+
+    IFS=' '
+    echo "${sizes[*]}"
 }
-evaporator "$1" "$2" "$3"
+sqInRect $1 $2
