@@ -1,0 +1,62 @@
+[project]
+name = "kata-challenge-setup"
+version = "0.1.0"
+description = "A setup for kata challenges"
+authors = [
+	{ name = "Simón Villafañe", email = "simonvillafanee@gmail.com" }
+]
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+	"black>=25.12.0",
+	"mypy>=1.19.1",
+	"pytest>=9.0.2"
+]
+
+[tool.black]
+line-length = 88
+target-version = ['py310', 'py311', 'py312', 'py313']
+skip-string-normalization = false
+preview = true                # enables some nicer formatting (recommended in 2024–2025)
+exclude = '''
+(
+  /(
+      \.eggs
+    | \.git
+    | \.hg
+    | \.mypy_cache
+    | \.tox
+    | \.venv
+    | _build
+    | buck-out
+    | build
+    | dist
+  )/
+  | migrations/.*
+)
+'''
+
+[tool.mypy]
+python_version = "3.12"
+strict = true
+pretty = true
+show_error_codes = true
+show_column_numbers = true
+warn_redundant_casts = true
+warn_unused_ignores = true
+warn_unreachable = true
+disallow_untyped_defs = true
+disallow_incomplete_defs = true
+check_untyped_defs = true
+no_implicit_reexport = true
+disallow_untyped_calls = false          # ← often relaxed in bigger/fast-moving projects
+implicit_optional = false
+
+exclude = [
+  "tests/*",
+]
+
+[[tool.mypy.overrides]]
+module = "tests.*"
+disallow_untyped_defs = false
+check_untyped_defs = false
