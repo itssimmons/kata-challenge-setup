@@ -1,11 +1,9 @@
-from . import sum_of_sums
+from main import is_valid_walk
 
 
-def inc(x):
-    return x + 1
-
-
-def test_answer():
-    assert sum_of_sums(3) == 55
-    assert sum_of_sums(5) == 630
-    assert sum_of_sums(100) == 14740530850
+def test_simple():
+    assert is_valid_walk(["n", "s", "n", "s", "n", "s", "n", "s", "n", "s"]) is True
+    assert (
+        is_valid_walk(["w", "e", "w", "e", "w", "e", "w", "e", "w", "e", "w", "e"])
+        is False
+    )

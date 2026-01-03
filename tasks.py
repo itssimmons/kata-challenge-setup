@@ -3,7 +3,7 @@ from invoke import task  # pyright: ignore[reportMissingImports]
 
 @task
 def run(c):
-    c.run("python __init__.py")
+    c.run("python main.py")
 
 
 @task
