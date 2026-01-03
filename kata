@@ -4,13 +4,14 @@ evaporator () {
     local rate=$2
     local threshold=$3
 
-    local day=0
-    local remaining=100
+    # Use logarithmic formula instead of iteration
+    # remaining = 100 * (1 - rate/100)^day
+    # threshold = 100 * (1 - rate/100)^day
+    # log(threshold/100) = day * log(1 - rate/100)
+    # day = log(threshold/100) / log(1 - rate/100)
 
-    while (( $(echo "$remaining > $threshold" | bc -l) )); do
-        remaining=$(echo "$remaining * (1 - $rate / 100)" | bc -l)
-        day=$((day + 1))
-    done
+    local day=$(echo "l($threshold/100) / l(1 - $rate/100)" | bc -l)
+    day=$(echo "scale=0; ($day + 0.999999999)/1" | bc)
 
     echo $day
 }
