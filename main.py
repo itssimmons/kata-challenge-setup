@@ -1,20 +1,19 @@
-from typing import List, Literal
+from typing import Dict
 
 
-def is_valid_walk(walk: List[Literal["n", "s", "w", "e"]]) -> bool:
-    if len(walk) != 10:
-        return False
+def count(s: str):
+    x: Dict[str, int] = {}
 
-    x, y = (0, 0)
+    if len(s) == 0:
+        return {}
 
-    for dir in walk:
-        if dir == "n":
-            y += 1
-        elif dir == "s":
-            y -= 1
-        elif dir == "w":
-            x -= 1
-        elif dir == "e":
-            x += 1
+    for char in s:
+        if char in x:
+            x[char] += 1
+        else:
+            x[char] = 1
 
-    return (x, y) == (0, 0)
+    return x
+
+
+print(count("hello"))

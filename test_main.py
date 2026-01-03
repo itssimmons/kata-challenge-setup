@@ -1,9 +1,20 @@
-from main import is_valid_walk
+from main import count
 
 
 def test_simple():
-    assert is_valid_walk(["n", "s", "n", "s", "n", "s", "n", "s", "n", "s"]) is True
-    assert (
-        is_valid_walk(["w", "e", "w", "e", "w", "e", "w", "e", "w", "e", "w", "e"])
-        is False
-    )
+    assert count("hello") == {
+        "h": 1,
+        "e": 1,
+        "l": 2,
+        "o": 1,
+    }
+    assert count("aabbcc") == {
+        "a": 2,
+        "b": 2,
+        "c": 2,
+    }
+    assert count("abcabc") == {
+        "a": 2,
+        "b": 2,
+        "c": 2,
+    }
