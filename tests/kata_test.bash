@@ -2,11 +2,11 @@
 source kata
 
 @test "3366 is not a leap year" {
-    result="$(kata 3363)"
-    [ "$result" == 0 ]
+    result="$(evaporator 10 10 10)"
+    [ "$result" == 22 ]
 }
 
 @test "2020 is a leap year" {
-    result="$(kata 2020)"
-    [ "$result" == 1 ]
+    result="$(evaporator 10 10 5)"
+    [ "$result" == 29 ]
 }
