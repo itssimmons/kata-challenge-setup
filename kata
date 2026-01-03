@@ -1,31 +1,12 @@
-# return a string (see: RUN SAMPLE TESTS)
-#!/bin/bash
-sqInRect() {
-    local long=$1
-    local wide=$2
-    local units=0
-    local sizes=()
+n=$1
+start=$(( n * (n - 1) + 1 ))
+sum=0
 
-    if [ $long -eq $wide ]; then
-        echo "nil"
-        return
-    fi
+for i in $(seq 0 $(( n - 1 ))); do
+    odd=$(( start + i * 2 ))
+    sum=$(( sum + odd ))
+done
 
-    while [ $wide -ne 0 ]; do
-        units=$(( long / wide ))
-        long=$(( long % wide ))
+echo $sum
 
-        for (( i=0; i<units; i++ )); do
-            sizes+=($wide)
-        done
-
-        local aux=$long
-        long=$wide
-        wide=$aux
-        unset aux
-    done
-
-    IFS=' '
-    echo "${sizes[*]}"
-}
-sqInRect $1 $2
+# or just n^3...
