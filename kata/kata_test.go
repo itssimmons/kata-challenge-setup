@@ -4,18 +4,24 @@ import (
 	"testing"
 )
 
-func Test29(t *testing.T) {
-	expected := 29
-	input := Decode("XXIX")
-	if input != expected {
-		t.Errorf("Expected %d but got %d", expected, input)
+func TestSample(t *testing.T) {
+	tests := []struct {
+		input    string
+		expected string
+	}{
+		{"Welcome", "emocleW"},
+		{"Hello", "olleH"},
+		{"to", "to"},
+		{"CodeWars", "sraWedoC"},
+		{"Hey fellow warriors", "Hey wollef sroirraw"},
 	}
-}
 
-func Test1990(t *testing.T) {
-	expected := 1990
-	input := Decode("MCMXC")
-	if input != expected {
-		t.Errorf("Expected %d but got %d", expected, input)
+	for _, test := range tests {
+		t.Run(test.input, func(t *testing.T) {
+			result := SpinWords(test.input)
+			if result != test.expected {
+				t.Errorf("SpinWords(%q) = %q; want %q", test.input, result, test.expected)
+			}
+		})
 	}
 }

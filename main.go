@@ -3,11 +3,9 @@ package main
 import (
 	"fmt"
 
-	"example.com/kata/kata"
+	"kata.io/kata"
 )
 
 func main() {
-	fmt.Println(kata.Decode("DLXXI")) // 571
-	fmt.Println(kata.Decode("XXIX"))  // 29
-	fmt.Println(kata.Decode("MCCXXXIX")) // 1239
+	fmt.Println(kata.SpinWords("Welcome to the world of programming"))
 }

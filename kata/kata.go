@@ -1,45 +1,26 @@
 package kata
 
-var compounds = map[string]int{
-	"CM": 900,
-	"CD": 400,
-	"XC": 90,
-	"XL": 40,
-	"IX": 9,
-	"IV": 4,
-}
+import "strings"
 
-var singles = map[string]int{
-	"M": 1_000,
-	"D": 500,
-	"C": 100,
-	"L": 50,
-	"X": 10,
-	"V": 5,
-	"I": 1,
-}
+func SpinWords(words string) string {
+	it := strings.Split(words, " ")
+	var buf = make([]string, len(it))
 
-func Decode(roman string) int {
-	r := roman
-  x := 0
-  
-	for i := 0; i < len(r); i++ {
-		if i+2 <= len(r) {
-			digits := r[i:i+2]
-			if v, err := compounds[digits]; err == true {
-				x += v
-				r = r[:i] + r[i+2:]
-				i -= 1
-			}
+	for i, v := range it {
+		if len(v) >= 5 {
+			buf[i] = reverse(v)
+		} else {
+			buf[i] = v
 		}
 	}
-	
-	for _, symbol := range r {
-		s := string(symbol)
-		if v, err := singles[s]; err == true {
-			x += v
-		}
+
+	return strings.Join(buf, " ")
+}
+
+func reverse(s string) string {
+	var r = []rune(s)
+	for i, j := 0, len(r)-1; i < j; i, j = i+1, j-1 {
+		r[i], r[j] = r[j], r[i]
 	}
-  
-  return x
+	return string(r)
 }
