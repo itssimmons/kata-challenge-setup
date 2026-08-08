@@ -1,26 +1,21 @@
 package kata
 
-import "strings"
+import (
+	"fmt"
+	"strings"
+)
 
-func SpinWords(words string) string {
-	it := strings.Split(words, " ")
-	var buf = make([]string, len(it))
-
-	for i, v := range it {
-		if len(v) >= 5 {
-			buf[i] = reverse(v)
-		} else {
-			buf[i] = v
-		}
+func ipv4(ip string) uint32 {
+	var n uint32
+	for i, part := range strings.Split(ip, ".") {
+		var octet uint32
+		fmt.Sscanf(part, "%d", &octet)
+		octet <<= uint32(8 * (3 - i))
+		n |= octet
 	}
-
-	return strings.Join(buf, " ")
+	return n
 }
 
-func reverse(s string) string {
-	var r = []rune(s)
-	for i, j := 0, len(r)-1; i < j; i, j = i+1, j-1 {
-		r[i], r[j] = r[j], r[i]
-	}
-	return string(r)
+func IpsBetween(start, end string) uint32 {
+	return ipv4(end) - ipv4(start)
 }
