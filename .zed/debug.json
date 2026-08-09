@@ -1,0 +1,13 @@
+[
+	{
+		"label": "Debug native binary",
+		"build": {
+			"command": "bazel",
+			"args": ["build", "-c", "dbg", "//:main"],
+			"cwd": "$ZED_WORKTREE_ROOT"
+		},
+		"program": "$ZED_WORKTREE_ROOT/bazel-bin/main",
+		"request": "launch",
+		"adapter": "CodeLLDB"
+	}
+]
